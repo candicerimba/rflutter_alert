@@ -75,11 +75,15 @@ class PopupDialog extends StatelessWidget {
       buttons: [
         DialogButton(
           child: Text(
-            "COOL",
-            style: TextStyle(color: Colors.white, fontSize: 20),
+            "This is a really long sentence.",
+            textAlign: TextAlign.center,
+            style: TextStyle(color: Colors.black, fontSize: 15),
           ),
+          color: Colors.white,
+          borderColor: Colors.black,
+          borderWidth: 1.5,
           onPressed: () => Navigator.pop(context),
-          width: 120,
+          width: 260,
         )
       ],
     ).show();
@@ -92,6 +96,7 @@ class PopupDialog extends StatelessWidget {
       type: AlertType.warning,
       title: "RFLUTTER ALERT",
       desc: "Flutter is more awesome with RFlutter Alert.",
+      rowButtons: false,
       buttons: [
         DialogButton(
           child: Text(

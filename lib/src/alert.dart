@@ -26,6 +26,7 @@ class Alert {
   final Widget content;
   final List<DialogButton> buttons;
   final Function closeFunction;
+  final bool rowButtons; // If true set buttons in a row, else in a column
 
   /// Alert constructor
   ///
@@ -40,6 +41,7 @@ class Alert {
     this.content,
     this.buttons,
     this.closeFunction,
+    this.rowButtons,
   });
 
   /// Displays defined alert window
@@ -119,10 +121,13 @@ class Alert {
                 ),
               ),
               contentPadding: style.buttonAreaPadding,
-              content: Row(
+              content: ((rowButtons == null || rowButtons) ? 
+              Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: _getButtons(),
-              ),
+              ) : Wrap(
+                runSpacing: 7,
+                children:_getButtons().map((e)=>Row(children: [e])).toList())), 
             ),
           ),
         ),

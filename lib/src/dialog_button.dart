@@ -19,6 +19,8 @@ class DialogButton extends StatelessWidget {
   final Gradient gradient;
   final BorderRadius radius;
   final Function onPressed;
+  final Color borderColor;
+  final double borderWidth;
 
   /// DialogButton constructor
   DialogButton({
@@ -29,6 +31,8 @@ class DialogButton extends StatelessWidget {
     this.color,
     this.gradient,
     this.radius,
+    this.borderColor,
+    this.borderWidth,
     @required this.onPressed,
   }) : super(key: key);
 
@@ -42,6 +46,10 @@ class DialogButton extends StatelessWidget {
         color: color ?? Theme.of(context).accentColor,
         gradient: gradient,
         borderRadius: radius ?? BorderRadius.circular(6),
+        border: Border.all(
+          color: borderColor ?? Colors.transparent,
+          width: borderWidth ?? 1.0,
+        ),
       ),
       child: Material(
         color: Colors.transparent,
